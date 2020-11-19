@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3afa34beb75bcbe4496e5d13857597d9, type: 3}
+  m_Name: Hanmer
+  m_EditorClassIdentifier: 
+  kindOfItem: 0
+  deepItemKind: 5
+  gameObject: {fileID: 1598452587523790357, guid: d3706d120d4b2fb47ab9611a62774acd,
+    type: 3}
+  itemName: "\u30CF\u30F3\u30DE\u30FC"
+  information: "\u30CF\u30F3\u30DE\u30FC"
+  Recipe: []

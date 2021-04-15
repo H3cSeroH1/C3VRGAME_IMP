@@ -5,7 +5,7 @@ using Valve.VR.InteractionSystem;
 
 public class PlayerHolder : MonoBehaviour
 {
-    public Player player = null;
+    public CustomPlayer player = null;
     public new CapsuleCollider collider = null;
     public GameObject Head = null;
 
@@ -13,6 +13,7 @@ public class PlayerHolder : MonoBehaviour
     public float HolderRadiusSpeed = 1.5f;
 
     public GameObject ItemholderHost = null;
+    public GameObject ItemholderHead = null;
     public GameObject Itemholder_Right = null;
     public GameObject Itemholder_Back = null;
     public GameObject Itemholder_Left = null;
@@ -21,7 +22,7 @@ public class PlayerHolder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponent<Player>();
+        player = GetComponent<CustomPlayer>();
         collider = GetComponent<CapsuleCollider>();
 
         
@@ -35,7 +36,7 @@ public class PlayerHolder : MonoBehaviour
 
     public void ItemholderController()
     {
-        Itemholder_Back.transform.localPosition = new Vector3(0, player.eyeHeight / 2.5f, -BeltRadius);
+        Itemholder_Back.transform.localPosition = new Vector3(0, player.eyeHeight / 3f, -BeltRadius);
 
 
         ItemholderHost.transform.position = new Vector3(player.hmdTransform.position.x, player.trackingOriginTransform.position.y + player.eyeHeight/2f, player.hmdTransform.position.z);

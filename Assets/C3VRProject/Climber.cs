@@ -11,9 +11,9 @@ public class Climber : MonoBehaviour
     public SteamVR_Action_Boolean ToggleGripButton;
     public ConfigurableJoint ClimberHandle;
 
-    private bool Climbing;
-    private ClimberHand ActiveHand;
-    private Rigidbody movedRigidbody;
+    public bool Climbing;
+    public ClimberHand ActiveHand;
+    public Rigidbody movedRigidbody;
 
     //public MovementVR movementvr = null;
 
@@ -27,11 +27,11 @@ public class Climber : MonoBehaviour
     {
         if (!RightHand)
         {
-            RightHand = transform.Find("HandColliderRight(Clone)").gameObject.GetComponent<ClimberHand>();
+            RightHand = transform.Find("CustomHandColliderRight(Clone)").gameObject.GetComponent<ClimberHand>();
         }
         if (!LeftHand)
         {
-            LeftHand = transform.Find("HandColliderLeft(Clone)").gameObject.GetComponent<ClimberHand>();
+            LeftHand = transform.Find("CustomHandColliderLeft(Clone)").gameObject.GetComponent<ClimberHand>();
         }
 
 

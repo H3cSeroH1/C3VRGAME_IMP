@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.c3_vr.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\qqvy4\\Documents\\unity_workspase\\C3_VR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\qqvy4\\Documents\\GitHub\\C3VRGAME_IMP\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "C3_VR [Testing]"

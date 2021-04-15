@@ -6,6 +6,9 @@ TagManager:
   tags:
   - projectile
   - FxTemporaire
+  - Climbable
+  - Face
+  - HeadSet
   layers:
   - Default
   - TransparentFX
@@ -27,8 +30,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - DetecionCone
+  - Detector
   - 
   - 
   - 

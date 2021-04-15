@@ -179,6 +179,7 @@ public class MovementVR : MonoBehaviour
             if(Vector3.Angle(Hit.normal, Vector3.up) != 0)
             {
                 isAngleGround = true;
+                //Debug.Log(Vector3.Angle(Hit.normal, Vector3.up));
             }
             else
             {

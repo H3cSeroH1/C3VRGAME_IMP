@@ -544,4 +544,12 @@ public class ManualReload : CustomInteractible
 		}
 		DettachHand (hand);
 	}
+
+	protected override void SetLayerRecursively(
+		GameObject self,
+		string layer
+	)
+	{
+		Debug.Log("non");
+	}
 }

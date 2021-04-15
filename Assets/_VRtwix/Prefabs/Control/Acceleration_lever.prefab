@@ -26,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5458586819543009416}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0275972, y: 0.027597217, z: 0.20264323}
+  m_LocalScale: {x: 0.027597208, y: 0.027597215, z: 0.20264325}
   m_Children: []
   m_Father: {fileID: 5458586819636176017}
   m_RootOrder: 0
@@ -68,6 +68,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -116,8 +117,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5458586819636176015}
-  m_LocalRotation: {x: 0.7071066, y: -4.9737985e-14, z: 2.8421706e-14, w: 0.70710707}
-  m_LocalPosition: {x: 0, y: 0, z: 0.469}
+  m_LocalRotation: {x: 0.7071066, y: -0, z: -0, w: 0.70710707}
+  m_LocalPosition: {x: 0, y: 0, z: 0.4690016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5458586819543009417}
@@ -221,6 +222,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -268,7 +270,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5458586819993775074}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -344,6 +346,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -420,6 +423,7 @@ MonoBehaviour:
   secondPoses: []
   leftHand: {fileID: 0}
   rightHand: {fileID: 0}
+  attachedToHand: 0
   leftMyGrabPoser: {fileID: 0}
   rightMyGrabPoser: {fileID: 0}
   TwoHanded: 0
@@ -430,19 +434,13 @@ MonoBehaviour:
   Grab:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   ReleaseHand:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   Stick: {fileID: 5458586819993775075}
   value: {x: 0, y: 0}
   clamp: {x: 0, y: 60}
   angle: {x: 0, y: 0}
-  handleDistance: 0
-  rotation: {x: 0, y: 0, z: 0, w: 0}
   normalize: 0
   returnToZero: 1
   typeHandGrabRotation: 2

@@ -7,14 +7,16 @@ public class Sticky_Inventory : MonoBehaviour
 {
     GameObject _parent;
     public GameObject HoldItem = null;
+    public Collider HoldItemColider = null;
 
     public bool KinematicHold = false;
     public bool MinisizeHold = true;
+    [Tooltip("ぶつかったアイテムのコライダーだけがトリガーになります．なんこも当たり判定があるようなアイテムを扱うときは気を付けること")]
+    public bool ColliderTriggerHold = false;
 
     public float minScalePer = 0.1f;
     public float HoldItemvolume = 0;
 
-    private bool Handling;
 
     //public bool ChangeedHoldItem=false;
 
@@ -43,7 +45,10 @@ public class Sticky_Inventory : MonoBehaviour
                 if (HoldItem.GetComponent<CustomInteractible>().attachedToHand)
                 {
                     HoldItem.transform.parent = null;
+
                     HoldItem.GetComponent<Rigidbody>().isKinematic = false;
+                    HoldItemColider.isTrigger = false;
+
                     if (MinisizeHold)
                     {
                         HoldItem.transform.localScale = (HoldItem.transform.localScale / (1 - HoldItemvolume)) / minScalePer;
@@ -56,7 +61,7 @@ public class Sticky_Inventory : MonoBehaviour
                     //ChangeedHoldItem = true;
 
                     //craftingSystem.canCraft();
-                    //SetLayerRecursively(_parent, 14);
+                    SetLayerRecursively(this.gameObject, "Default");
 
 
                 }
@@ -79,71 +84,81 @@ public class Sticky_Inventory : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        Debug.Log(other.transform.parent.gameObject);
 
         if (!HoldItem)
         {
-
-
             if (other.transform.parent.gameObject.GetComponent<CustomInteractible>())
             {
                 _parent = other.transform.parent.gameObject;
 
-                Debug.Log(_parent.GetComponent<CustomInteractible>().rightHand);
+                //Debug.Log(_parent.GetComponent<CustomInteractible>().rightHand);
 
                 
 
-                if (!_parent.GetComponent<CustomInteractible>().attachedToHand)// || (_parent.GetComponent<ItemTypeChecker>().ItemType.GetKindOfItem() == allowItemType)
-                {
+            }
+            else
+            {
+                _parent = other.transform.parent.gameObject;
 
-
-
-                    Renderer objRenderer = other.GetComponent<Renderer>();
-                    Bounds objBounds = objRenderer.bounds;
-
-                    HoldItemvolume = objBounds.size.sqrMagnitude;
-
-                    _parent.transform.parent = transform.parent;
-
-
-                    _parent.transform.position = this.transform.position;
-
-                    _parent.transform.rotation = this.transform.rotation;
-
-
-                    if (MinisizeHold)
-                    {
-                        _parent.transform.localScale = (_parent.transform.localScale * (1 - HoldItemvolume)) * minScalePer;
-                    }
-
-                    //_parent.GetComponent<Rigidbody>().isKinematic = true;
-
-
-                    _parent.GetComponent<Rigidbody>().isKinematic = KinematicHold;
-
-                    _parent.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
-
-
-
-
-                    _parent.GetComponent<Rigidbody>().angularVelocity = new Vector3(5, 5, 5);
-
-                    HoldItem = _parent;
-
-                    //ChangeedHoldItem = true;
-
-                    //craftingSystem.canCraft();
-
-                    //SetLayerRecursively(_parent, 10);
-
-                }
-
-                else
-                {
-                    Debug.Log("ばななまん");
-                }
-
+                _parent = _parent.transform.parent.gameObject;
+                //Debug.Log(_parent.GetComponent<CustomInteractible>().rightHand);
             }
         }
+
+        if (_parent && !HoldItem)
+        {
+            if (!_parent.GetComponent<CustomInteractible>().attachedToHand && (_parent.GetComponent<ItemTypeChecker>().ItemType.GetKindOfItem() == allowItemType))// || (_parent.GetComponent<ItemTypeChecker>().ItemType.GetKindOfItem() == allowItemType)
+            {
+
+                HoldItemColider = other;
+
+                Renderer objRenderer = other.GetComponent<Renderer>();
+                Bounds objBounds = objRenderer.bounds;
+
+                HoldItemvolume = objBounds.size.sqrMagnitude;
+
+                _parent.transform.parent = transform.parent;
+
+
+                _parent.transform.position = this.transform.position;
+
+                _parent.transform.rotation = this.transform.rotation;
+
+
+                if (MinisizeHold)
+                {
+                    _parent.transform.localScale = (_parent.transform.localScale * (1 - HoldItemvolume)) * minScalePer;
+                }
+
+                //_parent.GetComponent<Rigidbody>().isKinematic = true;
+
+
+                _parent.GetComponent<Rigidbody>().isKinematic = KinematicHold;
+
+                _parent.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+
+                HoldItemColider.isTrigger = ColliderTriggerHold;
+
+
+                _parent.GetComponent<Rigidbody>().angularVelocity = new Vector3(5, 5, 5);
+
+                HoldItem = _parent;
+
+                //ChangeedHoldItem = true;
+
+                //craftingSystem.canCraft();
+
+                SetLayerRecursively(_parent.gameObject, "MyHand");
+
+            }
+
+            else
+            {
+                Debug.Log("ばななまん");
+            }
+        }
+
         
 
 
@@ -152,14 +167,14 @@ public class Sticky_Inventory : MonoBehaviour
 
     //追加コード
     /// <summary>
-    /// 自分自身を”含まない”すべての子オブジェクトのレイヤーを設定します
+    /// 自分自身を”含む”すべての子オブジェクトのレイヤーを設定します
     /// </summary>
     public static void SetLayerRecursively(
         GameObject self,
-        int layer
+        string layer
     )
     {
-        self.layer = layer;
+        self.layer = LayerMask.NameToLayer(layer);
 
         foreach (Transform n in self.transform)
         {

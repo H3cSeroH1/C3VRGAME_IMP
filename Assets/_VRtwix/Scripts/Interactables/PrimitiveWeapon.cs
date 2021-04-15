@@ -176,6 +176,7 @@ public class PrimitiveWeapon : PhysicalObject
 				tempMagazine.primitiveWeapon = this;
 				tempMagazine.canLoad = false;
 				MagazineLoad.Invoke ();
+				SetLayerRecursively(this.gameObject, "MyHand");
 				return;
 			}
 				

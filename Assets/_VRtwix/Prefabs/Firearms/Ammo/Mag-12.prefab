@@ -161,24 +161,22 @@ MonoBehaviour:
   secondPoses: []
   leftHand: {fileID: 0}
   rightHand: {fileID: 0}
+  attachedToHand: 0
   leftMyGrabPoser: {fileID: 0}
   rightMyGrabPoser: {fileID: 0}
   TwoHanded: 0
   useSecondPose: 0
   HideController: 0
-  grabType: 3
+  grabType: 2
   pickReleaseOnce: 0
   Grab:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   ReleaseHand:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   twoHandTypeOnlyBackHandRotation: 0
+  twoHandTypeMiddleRotation: 0
   handleObject: []
   MyRigidbody: {fileID: 0}
   GizmoVisible: 0
@@ -207,7 +205,7 @@ MonoBehaviour:
   Revolver: 0
   canLoad: 1
   ammoType: 12
-  capacity: 10
+  capacity: 30
   ammo: 0
   stickingAmmo: []
   ContainAmmo:
@@ -221,6 +219,26 @@ MonoBehaviour:
   - {fileID: 2431908059886973104}
   - {fileID: 2431908060094725466}
   - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
+  - {fileID: 2431908059085716580}
   primitiveWeapon: {fileID: 0}
   MagazineColliders: []
   ang: 0
@@ -228,8 +246,6 @@ MonoBehaviour:
   addBullet:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &2431908058476085142
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,12 +292,12 @@ MonoBehaviour:
   poseEditorExpanded: 1
   blendEditorExpanded: 1
   poseNames:
-  - tuner (MAIN)
+  - toggle_switch_poser (MAIN)
   overridePreviewLeftHandPrefab: {fileID: 1000013348574242, guid: 638779290bce1af49b356f33dcc6fccf,
     type: 3}
   overridePreviewRightHandPrefab: {fileID: 1000010304998954, guid: 6def53d002137b747aec0b29551e0e25,
     type: 3}
-  skeletonMainPose: {fileID: 11400000, guid: d64cb2af2666c5e478c62ecd5202865f, type: 2}
+  skeletonMainPose: {fileID: 11400000, guid: 77b9fc3a92b103b4d905365b27105906, type: 2}
   skeletonAdditionalPoses: []
   showLeftPreview: 0
   showRightPreview: 0
@@ -445,6 +461,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -687,6 +704,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

@@ -685,6 +685,7 @@ GameObject:
   - component: {fileID: 4000011495277878}
   - component: {fileID: 54000013135273658}
   - component: {fileID: 6366083382010644882}
+  - component: {fileID: 3434797273656691514}
   m_Layer: 11
   m_Name: CustomHandColliderLeft
   m_TagString: Untagged
@@ -758,6 +759,21 @@ MonoBehaviour:
     - {fileID: 4000013920263390}
     - {fileID: 4000014174024032}
   collidersInRadius: 0
+--- !u!114 &3434797273656691514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013588331694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33a66c226170a046b5a096548f470ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hand: 1
+  TouchedCount: 0
+  grabbing: 0
 --- !u!1 &1000013918884664
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ public class CustomInteractible : MonoBehaviour {
 	public UnityEvent ReleaseHand;
 //
 
+
     public Transform GetMyGrabPoserTransform() {
         if (leftMyGrabPoser)
             return leftMyGrabPoser.transform;
@@ -105,6 +106,7 @@ public class CustomInteractible : MonoBehaviour {
                 hand.grabPoser = leftMyGrabPoser;
                 leftHand = hand;
                 leftHand.SkeletonUpdate();
+				SetLayerRecursively(this.gameObject, "MyHand");
 				attachedToHand = true;
             }
             //haptic
@@ -119,6 +121,7 @@ public class CustomInteractible : MonoBehaviour {
                 hand.grabPoser = rightMyGrabPoser;
                 rightHand = hand;
                 rightHand.SkeletonUpdate();
+				SetLayerRecursively(this.gameObject, "MyHand");
 				attachedToHand = true;
 			}
             //haptic
@@ -136,6 +139,7 @@ public class CustomInteractible : MonoBehaviour {
 				hand.grabPoser = leftMyGrabPoser;
 				leftHand = hand;
 				leftHand.SkeletonUpdate ();
+				SetLayerRecursively(this.gameObject, "MyHand");
 				attachedToHand = true;
 			}
 			//haptic
@@ -150,6 +154,7 @@ public class CustomInteractible : MonoBehaviour {
 				hand.grabPoser = rightMyGrabPoser;
 				rightHand = hand;
 				rightHand.SkeletonUpdate ();
+				SetLayerRecursively(this.gameObject, "MyHand");
 				attachedToHand = true;
 			}
 			//haptic
@@ -217,6 +222,7 @@ public class CustomInteractible : MonoBehaviour {
 		}
 		if (!leftHand && !rightHand)
 		{
+			SetLayerRecursively(this.gameObject, "Default");
 			attachedToHand = false;
 		}
 	}
@@ -236,7 +242,26 @@ public class CustomInteractible : MonoBehaviour {
 
 		if(!leftHand && !rightHand)
 		{
+			SetLayerRecursively(this.gameObject, "Default");
 			attachedToHand = false;
+		}
+	}
+
+
+	//追加コード
+	/// <summary>
+	/// 自分自身を”含む”すべての子オブジェクトのレイヤーを設定します
+	/// </summary>
+	protected virtual void SetLayerRecursively(
+		GameObject self,
+		string layer
+	)
+	{
+		self.layer = LayerMask.NameToLayer(layer);
+
+		foreach (Transform n in self.transform)
+		{
+			SetLayerRecursively(n.gameObject, layer);
 		}
 	}
 

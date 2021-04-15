@@ -47,8 +47,9 @@ public class HitEvent : MonoBehaviour
         {
             TakenVelocity += collision.relativeVelocity.magnitude;
             showPower.text = collision.relativeVelocity.magnitude.ToString() + "\n" + TakenVelocity.ToString() + "\n" + TakeHitCount.ToString();
+            
         }
-
+        Debug.Log(collision.relativeVelocity.magnitude.ToString() + "\n" + TakenVelocity.ToString() + "\n" + TakeHitCount.ToString());
         //if (collision.relativeVelocity.magnitude > 2)
 
 
